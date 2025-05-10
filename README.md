@@ -1,19 +1,19 @@
 # Xcode Cloud CI/CD with Mobile Operator Integration
 
-This repository serves as an example implementation of CI/CD using Xcode Cloud to automatically build and upload your iOS app to your Mobile Operator's account.
+This repository demonstrates how to implement CI/CD using Xcode Cloud to automatically build and upload your iOS app to your Mobile Operator account.
 
-The setup uses Xcode Cloud's post-build script functionality to automatically upload your app build to Mobile Operator's servers after a successful build. This is particularly useful for teams that need to distribute their app through Mobile Operator's platform.
+## Overview
+
+The integration leverages Xcode Cloud's post-build script functionality to automatically upload your app build to Mobile Operator's servers after a successful build. This solution is ideal for teams requiring automated distribution through the Mobile Operator platform.
 
 ## API Key Setup
 
-To use this integration, you'll need to obtain an API key from Mobile Operator:
+To enable this integration, you'll need to obtain your company's API key from Mobile Operator:
 
 1. Visit [mobileoperator.org](https://mobileoperator.org)
 2. Log in or create an account
-3. Navigate to your company
-4. Grab your company api key.
-
-Keep your API key secure and never commit it directly to your repository. Consider using environment variables or a secure secret management system.
+3. Navigate to your company settings
+4. Retrieve your company API key
 
 ## How It Works
 
@@ -22,7 +22,7 @@ Keep your API key secure and never commit it directly to your repository. Consid
 The post-build script (`ci_scripts/ci_post_xcodebuild.sh`) is automatically triggered by Xcode Cloud after a successful build. Here's what it does:
 
 1. Checks if the build action is an archive
-2. Verifies if it's running in the default workflow
+2. Verifies if it's running in the specified workflow
 3. Navigates to the signed app directory
 4. Uploads the `.ipa` file to Mobile Operator's servers
 
@@ -49,10 +49,6 @@ fi
 
 ## Setup Instructions
 
-1. Clone this repository
-2. Configure your Xcode project with Xcode Cloud
-3. In your Xcode Cloud workflow settings:
-   - Enable the post-build script
-   - Point to the `ci_scripts/ci_post_xcodebuild.sh` file
-4. Update the upload URL in the script with your Mobile Operator endpoint
-5. Commit and push your changes
+1. Copy the `ci_post_xcodebuild.sh` script into your app's repository
+2. Replace the API key placeholder with your company's API key
+3. Update the workflow name from "Default" to match your release workflow name
