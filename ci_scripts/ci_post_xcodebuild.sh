@@ -12,8 +12,8 @@ then
         cd $CI_APP_STORE_SIGNED_APP_PATH
         echo ":open_file_folder: Changed to dev signed app path: $CI_APP_STORE_SIGNED_APP_PATH"
         appName=$(ls *.ipa | head -n 1)
-        echo "Uploading to GCS..."
-        curl -T "$appName" -H "Content-Type: application/octet-stream" "https://storage.googleapis.com/builds_webhook/7e7fa93b-9605-4eac-be2d-309cb20e76f6/Mojo.ipa"
+        echo "Uploading to MOBILE OPERATOR..."
+        curl -T "$appName" -H "Content-Type: application/octet-stream" "https://storage.googleapis.com/builds_webhook/your_api_key/YourAppName.ipa"
         echo "Upload completed"
     fi
 fi
